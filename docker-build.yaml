@@ -1,0 +1,19 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "docker-gradle-jdk" 
+spec:
+  source: 
+    type: "Git"
+    git:
+      uri: "https://github.com/andrewskripnik/docker.git"
+  strategy: 
+    type: "Docker"
+    dockerStrategy:
+      dockerfilePath: gradle-builder/grdale4-jdk8/Dockerfile
+  output: 
+    to:
+      kind: "DockerImage"
+      name: "docker-registry.default.svc:5000/test/docker-gradle-jdk"
+  postCommit: 
+      script: "ls /usr/libexec/"
