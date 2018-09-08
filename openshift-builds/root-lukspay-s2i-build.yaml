@@ -7,6 +7,7 @@ spec:
     type: "Git"
     git:
       uri: "https://lkoloda@gerrit.lukspay.com/a/Lukspay-root"
+      ref: "develop"
     sourceSecret: 
       name: "koloda-password-gerrit"
       namespace: "test"
