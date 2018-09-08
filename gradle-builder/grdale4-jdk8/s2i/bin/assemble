@@ -26,5 +26,5 @@ cp -Rf /tmp/src/. /opt/app-root
 echo "---> Building application from source..."
 cd /opt/app-root
 ls
-gradle build --init-script "init.gradle"
+gradle build --init-script "init.gradle" --no-daemon
 # TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
