@@ -1,0 +1,24 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "root-lukspay-build" 
+spec:
+  source: 
+    type: "Git"
+    git:
+      uri: "https://lkoloda@gerrit.lukspay.com/a/Lukspay-root"
+    sourceSecret: 
+      name: "koloda-password-gerrit"
+      namespace: "test"
+  strategy: 
+    type: "Source"
+    sourceStrategy:
+      from: 
+        kind: "DockerImage"
+        name: "docker-registry.default.svc:5000/test/docker-gradle-jdk"
+  output: 
+    to:
+      kind: "DockerImage"
+      name: "docker-registry.default.svc:5000/test/root-lukspay:latest"
+  postCommit: 
+      script: "ls /usr/libexec/"
