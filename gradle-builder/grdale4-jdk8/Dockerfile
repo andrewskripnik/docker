@@ -23,7 +23,7 @@ RUN curl -sL -0 https://services.gradle.org/distributions/gradle-${GRADLE_VERSIO
     mv /usr/local/gradle-${GRADLE_VERSION} /usr/local/gradle && \
     ln -sf /usr/local/gradle/bin/gradle /usr/local/bin/gradle
 
-COPY ./s2i/bin/ /usr/libexec/s2i/
+COPY ./gradle-builder/grdale4-jdk8/s2i/bin/ /usr/libexec/s2i/
 
 LABEL io.openshift.s2i.scripts-url=image:///usr/libexec/s2i
 
