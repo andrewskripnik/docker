@@ -2,10 +2,18 @@ kind: "BuildConfig"
 apiVersion: "v1"
 metadata:
   name: "gradle-jenkins-slave" 
+  annotations:
+    description: Modifies the openshift/jenkins-slave-base-centos7 to run as Jenkins slave
+  labels:
+    app: gradle-jenkins-agent
+    name: gradle-slave
+    template: gradle-jenkins-agent
+  namespace: cicd
 spec:
   source: 
     type: "Git"
     git:
+      ref: master
       uri: "https://github.com/andrewskripnik/docker.git"
   strategy: 
     type: "Docker"
