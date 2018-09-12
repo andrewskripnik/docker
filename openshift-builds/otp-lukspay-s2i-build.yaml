@@ -15,7 +15,7 @@ spec:
     sourceStrategy:
       from: 
         kind: "DockerImage"
-        name: "docker-registry.default.svc:5000/test/docker-gradle-jdk"
+        name: "docker-registry.default.svc:5000/test/s2i-jdk8r-gradle4.10:latest"
   output: 
     to:
       kind: "DockerImage"
