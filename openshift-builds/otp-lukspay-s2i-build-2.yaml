@@ -7,15 +7,15 @@ spec:
     type: "Git"
     git:
       uri: "https://github.com/andrewskripnik/docker.git"
-    contextDir: "Docker/jdk" 
+    contextDir: "Docker/lukspay-otp-deploy" 
   strategy:
     type: "Docker"
     dockerStrategy:
-      dockerfilePath: Docker/jdk/Dockerfile
+      dockerfilePath: Docker/lukspay-otp-deploy/Dockerfile
   output:
     to:
       kind: "DockerImage"
-      name: "docker-registry.default.svc:5000/test/java1.8:latest"
+      name: "docker-registry.default.svc:5000/test/lukspay-otp:latest"
   postCommit:
-      script: "ls /usr/libexec/"
+      script: "ls /"
 

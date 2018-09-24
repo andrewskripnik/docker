@@ -11,15 +11,15 @@ ENV BUILD_VERSION v1.0.0
 ENV JAVA_VERSION openjdk-1.8.0
 
 
-RUN yum remove -y git libxml2-devel lsof mariadb-devel mariadb-libs postgresql-devel sqlite-devel yum-utils wget gettext gcc-c++ && \
-    yum install -y java-1.8.0-openjdk && yum clean all -y && rm -rf /var/cache/yum && \
+RUN yum install -y java-1.8.0-openjdk unzip tar && yum clean all -y && rm -rf /var/cache/yum && \
     mkdir -p /opt/app-root
 
-ENV JAVA_HOME /usr/lib/jvm/java-openjdk
+ENV JAVA_HOME /etc/alternatives/jre_openjdk
 
 RUN chown -R 1001:1001 /opt/app-root
 
 COPY docker-entrypoint.sh /entrypoint.sh
+
 
 RUN chmod +x /entrypoint.sh
 
