@@ -1,0 +1,21 @@
+kind: "BuildConfig"
+apiVersion: "v1"
+metadata:
+  name: "java-1.8"
+spec:
+  source:
+    type: "Git"
+    git:
+      uri: "https://github.com/andrewskripnik/docker.git"
+    contextDir: "Docker/jdk" 
+  strategy:
+    type: "Docker"
+    dockerStrategy:
+      dockerfilePath: Docker/jdk/Dockerfile
+  output:
+    to:
+      kind: "DockerImage"
+      name: "docker-registry.default.svc:5000/test/java1.8:latest"
+  postCommit:
+      script: "ls /usr/libexec/"
+
